@@ -8,10 +8,8 @@
 from .sql import Sql
 from chinanews_spider.items import ChinanewsSpiderItem
 
-print('开始执行pipeline')
 class ChinanewsSpiderPipeline(object):
     def process_item(self, item, spider):
-        print('开始执行pipeline')
         if isinstance(item, ChinanewsSpiderItem):
             category = item['category']
             content = item['content']
