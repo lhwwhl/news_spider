@@ -27,8 +27,11 @@ class NewsSpider(scrapy.Spider):
         results = json.loads(handle)
         #print(results)
         #print(results[0]['content'])
-        #item = ChinanewsSpiderItem()
+        item = ChinanewsSpiderItem()
         #print(result[0]['content'])
         for result in results:
-            item['content'] = result['content']
+            Check = result['source_url'].split('/')[4]
+            if Check in self.ctgys:
+                item['category'] = result['source_url'].split('/')[4]
+                item['content'] = result['content']
             print(item['category'], item['content'])
