@@ -69,9 +69,9 @@ DEFAULT_REQUEST_HEADERS = { "Accept":"text/html,application/xhtml+xml,applicatio
 
 # Configure item pipelines
 # See http://scrapy.readthedocs.org/en/latest/topics/item-pipeline.html
-#ITEM_PIPELINES = {
-#    'chinanews_spider.pipelines.ChinanewsSpiderPipeline': 300,
-#}
+ITEM_PIPELINES = {
+    'chinanews_spider.pipelines.ChinanewsSpiderPipeline': 1,
+}
 
 # Enable and configure the AutoThrottle extension (disabled by default)
 # See http://doc.scrapy.org/en/latest/topics/autothrottle.html
@@ -93,3 +93,4 @@ HTTPCACHE_EXPIRATION_SECS = 0
 HTTPCACHE_DIR = 'httpcache'
 HTTPCACHE_IGNORE_HTTP_CODES = []
 HTTPCACHE_STORAGE = 'scrapy.extensions.httpcache.FilesystemCacheStorage'
+

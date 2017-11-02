@@ -13,7 +13,7 @@ class Sql:
         #sql = ("INSERT INTO table_name" 
 		#	   "(category, content)"
 		#	   "VALUES (%(category)s, %(content)s)")
-        sql = "INSERT INTO %s (category, content) VALUES ('%s', '%s');" % (category, category, content)
+        sql = "INSERT INTO %s (content) VALUES ('%s');" % (category, content)
         print(sql)
         #value = {
 		#		"category"  :category,
@@ -24,9 +24,10 @@ class Sql:
             cur.execute(sql)
             #cur.execute(sql, value)
             db.commit()
-        except:
+        except Exception as e:
+            print(e)
             db.rollback()
 
-if __name__ == '__main__':
-    test = Sql()
-    test.insert_news("yl", "dddorlddd")
+#if __name__ == '__main__':
+#    test = Sql()
+#    test.insert_news("yl", "dddorlddd")

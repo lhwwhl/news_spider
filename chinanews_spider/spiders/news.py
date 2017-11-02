@@ -11,8 +11,9 @@ class NewsSpider(scrapy.Spider):
     allowed_domains = ['www.chinanews.com']
     #base_url = 'http://channel.chinanews.com/cns/s/channel:life.shtml?pager=1&pagenum=20'
     base_url = 'http://channel.chinanews.com/cns/s/channel:{ctgy}.shtml?pager={pager}&pagenum=20'
-    ctgys = ['ty', 'yl', 'cj', 'mil', 'auto', 'gj', 'it', 'sh']
-    pagers = range(1, 3) 
+    ctgys = ['yl']
+    #ctgys = ['ty', 'yl', 'cj', 'mil', 'auto', 'gj', 'it', 'sh']
+    pagers = range(1, 2) 
 
     def start_requests(self):
         for ctgy in self.ctgys:
@@ -26,12 +27,12 @@ class NewsSpider(scrapy.Spider):
         handle = temp.split('docs\" :')[1].split('};')[0]
         results = json.loads(handle)
         #print(results)
-        #print(results[0]['content'])
         item = ChinanewsSpiderItem()
-        #print(result[0]['content'])
         for result in results:
             Check = result['source_url'].split('/')[4]
+            #print(Check)
             if Check in self.ctgys:
                 item['category'] = result['source_url'].split('/')[4]
                 item['content'] = result['content']
-            print(item['category'], item['content'])
+            #print(item['category'], item['content'])
+                yield item
