@@ -1,9 +1,0 @@
-Vary: Accept-Encoding
-Content-Encoding: gzip
-X-Cache: bypass
-Content-Language: zh-CN
-Pragma: no-cache
-Expires: Mon, 30 Oct 2017 15:57:37 GMT
-Date: Mon, 30 Oct 2017 15:55:40 GMT
-Content-Type: text/html; charset=utf-8
-Cache-Control: max-age=120
